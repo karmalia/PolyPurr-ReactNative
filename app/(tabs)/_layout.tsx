@@ -24,7 +24,14 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         tabBarInactiveTintColor: Colors[colorScheme ?? "light"].tabIconDefault,
         tabBarStyle: {
+          backgroundColor: Colors[colorScheme ?? "light"].darkOrange,
+          height: 60,
+        },
+        headerStyle: {
           backgroundColor: Colors[colorScheme ?? "light"].tabBackground,
+        },
+        headerTitleStyle: {
+          color: Colors[colorScheme ?? "light"].secondaryColor,
         },
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
@@ -35,8 +42,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name='index'
         options={{
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
+          title: "Kelimeler",
+
+          tabBarIcon: ({ color }) => <TabBarIcon name='paw' color={color} />,
           headerRight: () => (
             <Link href='/modal' asChild>
               <Pressable>
@@ -56,22 +64,23 @@ export default function TabLayout() {
       <Tabs.Screen
         name='two'
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name='bolt' color={color} />,
-          headerRight: () => (
-            <Link href='/modalTwo' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: "Ayarlar",
+
+          tabBarIcon: ({ color }) => <TabBarIcon name='lock' color={color} />,
+          // headerRight: () => (
+          //   <Link href='/modalTwo' asChild>
+          //     <Pressable>
+          //       {({ pressed }) => (
+          //         <FontAwesome
+          //           name='info-circle'
+          //           size={25}
+          //           color={Colors[colorScheme ?? "light"].text}
+          //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+          //         />
+          //       )}
+          //     </Pressable>
+          //   </Link>
+          // ),
         }}
       />
     </Tabs>

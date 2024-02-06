@@ -1,0 +1,62 @@
+[
+  {
+    "wordId": "helloId",
+    "word": "hello",
+    "matchId": "1",
+    "langCode": "en"
+  },
+  {
+    "wordId": "merhabaId",
+    "word": "merhaba",
+    "matchId": "1",
+    "langCode": "tr"
+  },
+  {
+    "matchId": "2",
+    "wordId": "goodbyeId",
+    "word": "goodbye",
+    "langCode": "en"
+  },
+  {
+    "matchId": "2",
+    "wordId": "guleGuleId",
+    "word": "güle güle",
+    "langCode": "tr"
+  },
+  {
+    "wordId": "loveId",
+    "word": "love",
+    "matchId": "3",
+    "langCode": "en"
+  },
+  {
+    "wordId": "askId",
+    "word": "aşk",
+    "matchId": "3",
+    "langCode": "tr"
+  },
+  {
+    "wordId": "waterId",
+    "word": "water",
+    "matchId": "4",
+    "langCode": "en"
+  },
+  {
+    "wordId": "4",
+    "word": "su",
+    "matchId": "4",
+    "langCode": "tr"
+  },
+  {
+    "wordId": "bookId",
+    "word": "book",
+    "matchId": "5",
+    "langCode": "en"
+  },
+  {
+    "wordId": "kitapId",
+    "word": "kitap",
+    "matchId": "5",
+    "langCode": "tr"
+  }
+]

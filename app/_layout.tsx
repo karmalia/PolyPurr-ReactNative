@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useColorScheme } from "@/components/useColorScheme";
 import FirstScreen from "@/app/first-screen";
 import Colors from "@/constants/Colors";
+import { useFirstLaunch } from "@/utils/use-first-launch";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -31,7 +32,6 @@ export default function RootLayout() {
     "titan-one": require("../assets/fonts/TitanOne-Regular.ttf"),
     ...FontAwesome.font,
   });
-  const [firstScreen, setFirstScreen] = useState(true);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -42,10 +42,6 @@ export default function RootLayout() {
     if (loaded) {
       SplashScreen.hideAsync();
     }
-
-    setTimeout(() => {
-      setFirstScreen(false);
-    }, 1000);
   }, [loaded]);
 
   if (!loaded) {
@@ -61,6 +57,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack
+        initialRouteName='first-screen'
         screenOptions={{
           headerStyle: {
             backgroundColor: Colors[colorScheme ?? "light"].tabBackground,
@@ -77,7 +74,11 @@ function RootLayoutNav() {
           name='(tabs)'
           options={{ headerShown: false, title: "Tab Ones" }}
         />
-        <Stack.Screen name='modal' options={{ presentation: "modal" }} />
+        {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
+        <Stack.Screen
+          name='cross-words/[level]'
+          options={{ presentation: "modal", headerShown: false }}
+        />
       </Stack>
     </ThemeProvider>
   );

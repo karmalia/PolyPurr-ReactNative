@@ -27,9 +27,12 @@ export default {
   dark: {
     text: "#fff",
     background: "#000",
+    secondaryColor: "black",
     tabBackground: "#F2784B",
     tint: tintColorDark,
     tabIconDefault: "#ccc",
     tabIconSelected: tintColorDark,
+    darkOrange: polyPurrColors.darkOrange,
+    lightOrange: polyPurrColors.lightOrange,
   },
 };
