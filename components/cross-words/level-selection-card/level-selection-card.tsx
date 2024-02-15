@@ -28,7 +28,7 @@ const LevelSelectionCard = ({ title, icon, href }: SelectionCardProps) => {
             {
               borderWidth: 3,
               borderRadius: 10,
-              borderColor: Colors[colorScheme ?? "light"].darkOrange,
+              borderColor: Colors[colorScheme ?? "light"].secondaryColor,
               backgroundColor: pressed
                 ? Colors[colorScheme ?? "light"].darkOrange
                 : "transparent",
@@ -39,9 +39,7 @@ const LevelSelectionCard = ({ title, icon, href }: SelectionCardProps) => {
             style={[
               styles.title,
               {
-                color: pressed
-                  ? Colors[colorScheme ?? "light"].secondaryColor
-                  : Colors[colorScheme ?? "light"].text,
+                color: Colors[colorScheme ?? "light"].text,
               },
             ]}
           >

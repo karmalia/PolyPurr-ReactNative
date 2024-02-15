@@ -1,38 +1,41 @@
 const tintColorLight = "#efefef";
 const tintColorDark = "#fff";
 
-const polyPurrColors = {
-  backgroundColor: "#F2884B",
-  secondaryColor: "rgb(250, 249, 240)",
-  darkOrange: "#F2784B",
-  lightOrange: "#F29F80",
-  white: "#F2F2F2",
-  dark: "#595959",
-};
+// Background Color (Muted Orange): #F0A76B
+// Card Background (Off-white/Grey): #FAF9F0
+// Accent Color (Teal): #3C9D9B
+// Text Color (Dark Grey): #404040
+// Highlight Color (Bright Orange): #FFA500
 
 export default {
   light: {
-    text: "#595959",
-    background: "#F2F2F2",
+    text: "#404040",
+    highlightColor: "#FFA500",
+    accentColor: "#3C9D9B",
+    background: "#F0A76B",
     tabBackground: "#F2784B",
     borderColor: "red",
     tint: tintColorLight,
     tabIconDefault: "#ccc",
     tabIconSelected: tintColorLight,
     backgroundColor: "#F2884B",
-    secondaryColor: "rgb(250, 249, 240)",
-    darkOrange: polyPurrColors.darkOrange,
-    lightOrange: polyPurrColors.lightOrange,
+    secondaryColor: "#FAF9F0",
+    darkOrange: "#F2784B",
+    lightOrange: "#F2884B",
   },
   dark: {
-    text: "#fff",
-    background: "#000",
-    secondaryColor: "black",
+    text: "#404040",
+    highlightColor: "#FFA500",
+    accentColor: "#3C9D9B",
+    background: "#F0A76B",
     tabBackground: "#F2784B",
-    tint: tintColorDark,
+    borderColor: "red",
+    tint: tintColorLight,
     tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
-    darkOrange: polyPurrColors.darkOrange,
-    lightOrange: polyPurrColors.lightOrange,
+    tabIconSelected: tintColorLight,
+    backgroundColor: "#F2884B",
+    secondaryColor: "#FAF9F0",
+    darkOrange: "#F2784B",
+    lightOrange: "#F2884B",
   },
 };

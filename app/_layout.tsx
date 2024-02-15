@@ -53,9 +53,9 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-
+  // <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={DefaultTheme}>
       <Stack
         initialRouteName='first-screen'
         screenOptions={{
@@ -69,12 +69,12 @@ function RootLayoutNav() {
         }}
       >
         {/* Sıra önemli! */}
-        <Stack.Screen name='first-screen' options={{ headerShown: false }} />
+
         <Stack.Screen
           name='(tabs)'
           options={{ headerShown: false, title: "Tab Ones" }}
         />
-        {/* <Stack.Screen name='modal' options={{ presentation: "modal" }} /> */}
+        <Stack.Screen name='first-screen' options={{ headerShown: false }} />
         <Stack.Screen
           name='cross-words/[level]'
           options={{ presentation: "modal", headerShown: false }}

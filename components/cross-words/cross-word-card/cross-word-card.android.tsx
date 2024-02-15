@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View, useColorScheme } from "react-native";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import Colors from "@/constants/Colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Pressable } from "@/components/Themed";
 import { router } from "expo-router";
+import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 
 type Props = {
   isDone: boolean;
@@ -43,20 +44,28 @@ const CrossWordCard = ({
   isSelected,
 }: Props) => {
   const colorScheme = useColorScheme();
+  const scale = useSharedValue(1);
+
+  useEffect(() => {
+    scale.value = isSelected ? withSpring(1.2) : withSpring(1);
+  }, [isSelected]);
 
   return (
-    <View>
+    <Animated.View
+      style={{
+        transform: [{ scale: scale }],
+      }}
+    >
       <Pressable
         style={{
           backgroundColor: isSelected
-            ? Colors.light.lightOrange
-            : "transparent",
+            ? Colors.light.accentColor
+            : Colors.light.lightOrange,
           height: 80,
           borderWidth: 2,
           borderColor: Colors.light.secondaryColor,
           width: 130,
           borderRadius: 10,
-          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -66,7 +75,7 @@ const CrossWordCard = ({
           style={[
             styles.title,
             {
-              color: isDone
+              color: isSelected
                 ? Colors[colorScheme ?? "light"].secondaryColor
                 : Colors[colorScheme ?? "light"].secondaryColor,
             },
@@ -75,7 +84,7 @@ const CrossWordCard = ({
           {word.word}
         </Text>
       </Pressable>
-    </View>
+    </Animated.View>
   );
 };
 

@@ -19,6 +19,8 @@ const english = _.shuffle(dummyData.filter((item) => item.langCode === "en"));
 const CrossWordsPage = () => {
   const params = useLocalSearchParams();
   const [finishedWords, setFinishedWords] = useState<string[]>([]);
+  const [countDown, setCountDown] = React.useState(3);
+  const colorScheme = useColorScheme();
   const [words, setWords] = useState({
     turkish: {
       word: "",
@@ -50,27 +52,26 @@ const CrossWordsPage = () => {
     }
 
     if (words.turkish.matchId === words.english.matchId) {
-      setFinishedWords([
-        ...finishedWords,
-        words.turkish.word,
-        words.english.word,
-      ]);
-      setWords({
-        turkish: {
-          word: "",
-          matchId: "",
-        },
+      setTimeout(() => {
+        setWords({
+          turkish: {
+            word: "",
+            matchId: "",
+          },
 
-        english: {
-          word: "",
-          matchId: "",
-        },
-      });
+          english: {
+            word: "",
+            matchId: "",
+          },
+        });
+        setFinishedWords([
+          ...finishedWords,
+          words.turkish.word,
+          words.english.word,
+        ]);
+      }, 1000);
     }
   }, [words]);
-
-  const [countDown, setCountDown] = React.useState(3);
-  const colorScheme = useColorScheme();
 
   React.useEffect(() => {
     if (countDown > 0) {
@@ -88,7 +89,7 @@ const CrossWordsPage = () => {
       style={[
         styles.container,
         {
-          backgroundColor: Colors[colorScheme ?? "light"].darkOrange,
+          backgroundColor: Colors[colorScheme ?? "light"].background,
         },
       ]}
     >
